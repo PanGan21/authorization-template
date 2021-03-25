@@ -1,7 +1,7 @@
 import express from "express";
 
 import { setUser } from "./middleware.js";
-import { permissions, ROLE } from "./data.js";
+import { ROLE } from "./data.js";
 import { router } from "./routes/resources.js";
 import { authRole, authUser } from "./auth.js";
 

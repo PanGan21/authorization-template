@@ -1,9 +1,9 @@
-import { permissions } from "./data.js";
+import { users } from "./data.js";
 
 export const setUser = (req, res, next) => {
   const userId = req.body.userId;
   if (userId) {
-    req.user = permissions.users.find((user) => user.id === userId);
+    req.user = users.find((user) => user.id === userId);
   }
 
   next();
