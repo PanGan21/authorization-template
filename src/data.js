@@ -6,7 +6,7 @@ export const ROLE = {
 export const users = [
   { id: 1, name: "ADMIN-NAME", role: ROLE.ADMIN },
   { id: 2, name: "BASIC-NAME-1", role: ROLE.BASIC },
-  { id: 3, name: "BASIC-NAME-2", role: ROLE.ADMIN },
+  { id: 3, name: "BASIC-NAME-2", role: ROLE.BASIC },
 ];
 
 export const resources = [
