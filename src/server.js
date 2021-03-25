@@ -1,17 +1,26 @@
 import express from "express";
 
+import { setUser } from "./middleware.js";
 import { permissions } from "./data.js";
+import { router } from "./routes/resources.js";
 
 const app = express();
 app.use(express.json());
 
-const setUser = (req, res, next) => {
-  const userId = req.body.userId;
-  if (userId) {
-    req.user = permissions.find((user) => user.id == userId);
-  }
+app.use(setUser);
 
-  next();
-};
+app.use(router);
+
+app.get("/", (req, res) => {
+  res.send("HOME PAGE");
+});
+
+app.get("/dashboard", (req, res) => {
+  res.send("DASHBOARD PAGE");
+});
+
+app.get("/admin", (req, res) => {
+  res.send("ADMIN PAGE");
+});
 
 app.listen(3000);
