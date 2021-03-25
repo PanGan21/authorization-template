@@ -1,10 +1,9 @@
-const ROLE = {
+export const ROLE = {
   ADMIN: "admin",
   BASIC: "basic",
 };
 
 export const permissions = {
-  ROLE,
   users: [
     { id: 1, name: "ADMIN-NAME", role: ROLE.ADMIN },
     { id: 2, name: "BASIC-NAME-1", role: ROLE.BASIC },

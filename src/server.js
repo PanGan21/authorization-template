@@ -1,8 +1,9 @@
 import express from "express";
 
 import { setUser } from "./middleware.js";
-import { permissions } from "./data.js";
+import { permissions, ROLE } from "./data.js";
 import { router } from "./routes/resources.js";
+import { authRole, authUser } from "./auth.js";
 
 const app = express();
 app.use(express.json());
@@ -15,11 +16,11 @@ app.get("/", (req, res) => {
   res.send("HOME PAGE");
 });
 
-app.get("/dashboard", (req, res) => {
+app.get("/dashboard", authUser, (req, res) => {
   res.send("DASHBOARD PAGE");
 });
 
-app.get("/admin", (req, res) => {
+app.get("/admin", authUser, authRole(ROLE.ADMIN), (req, res) => {
   res.send("ADMIN PAGE");
 });
 
